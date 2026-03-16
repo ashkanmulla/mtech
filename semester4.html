@@ -2,112 +2,427 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Fourth Semester 2025-2026 – Grade Sheet | BITS Pilani WILP</title>
+    <title>Grade Sheet | BITS Pilani – eLearn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; color: #333; min-height: 100vh; display: flex; flex-direction: column; }
-      .header { background: #fff; padding: 12px 32px; display: flex; align-items: center; gap: 14px; border-bottom: 3px solid #003366; }
-      .header img { height: 58px; }
-      .header-text { line-height: 1.35; }
-      .header-title { font-size: 19px; font-weight: 700; color: #003366; }
-      .header-sub { font-size: 10.5px; color: #666; letter-spacing: 0.03em; }
-      .header-wilp { font-size: 11px; color: #003366; font-weight: 600; margin-top: 2px; }
-      .nav-bar { background: #003366; padding: 0 32px; display: flex; }
-      .nav-bar a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 20px; display: inline-block; transition: background 0.15s, color 0.15s; letter-spacing: 0.01em; }
-      .nav-bar a:hover { background: rgba(255,255,255,0.08); color: #fff; }
-      .nav-bar a.active { background: rgba(255,255,255,0.12); color: #fff; }
-      .breadcrumb { background: #e4e9f0; padding: 9px 32px; font-size: 12px; color: #555; }
-      .breadcrumb a { color: #003366; text-decoration: none; }
+
+      body {
+        font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #f5f6fa;
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .top-strip {
+        height: 4px;
+        display: flex;
+      }
+      .top-strip div:nth-child(1) { flex: 1; background: #dc3545; }
+      .top-strip div:nth-child(2) { flex: 1; background: #ffc107; }
+      .top-strip div:nth-child(3) { flex: 1; background: #0d6efd; }
+      .top-strip div:nth-child(4) { flex: 1; background: #198754; }
+
+      .header {
+        background: #fff;
+        padding: 14px 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .header-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .header img { height: 52px; }
+      .header-text { line-height: 1.3; }
+      .header-title { font-size: 17px; font-weight: 700; color: #003366; }
+      .header-sub { font-size: 9.5px; color: #888; letter-spacing: 0.05em; text-transform: uppercase; }
+
+      .header-right {
+        font-size: 11px;
+        color: #666;
+        text-align: right;
+        line-height: 1.5;
+      }
+
+      .header-right strong { color: #003366; }
+
+      .nav-bar {
+        background: #003366;
+        font-size: 0;
+      }
+
+      .nav-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .nav-bar a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 9px 18px;
+        display: inline-block;
+        transition: background 0.15s, color 0.15s;
+      }
+
+      .nav-bar a:hover { background: rgba(255,255,255,0.07); color: #fff; }
+      .nav-bar a.active { background: rgba(255,255,255,0.1); color: #fff; border-bottom: 2px solid #ffc107; }
+
+      .page-body {
+        flex: 1;
+        max-width: 1080px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 24px 28px 40px;
+      }
+
+      .breadcrumb {
+        font-size: 11.5px;
+        color: #888;
+        margin-bottom: 20px;
+      }
+
+      .breadcrumb a { color: #0056b3; text-decoration: none; }
       .breadcrumb a:hover { text-decoration: underline; }
-      .breadcrumb span { color: #999; margin: 0 5px; }
-      .content { flex: 1; max-width: 940px; width: 100%; margin: 0 auto; padding: 32px 32px 48px; }
-      .results-title { font-size: 26px; font-weight: 700; color: #0056b3; margin-bottom: 4px; }
-      .course-label { font-size: 13px; color: #003366; font-weight: 600; margin-bottom: 4px; }
-      .results-sub { font-size: 13px; color: #555; margin-bottom: 22px; }
-      .verify-panel { background: #fff; border: 1px solid #d0d5dd; border-radius: 6px; padding: 26px 30px; max-width: 480px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-      .verify-panel h2 { font-size: 15px; font-weight: 700; color: #003366; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
-      .field { margin-bottom: 14px; }
-      .field label { display: block; font-size: 12.5px; font-weight: 600; color: #444; margin-bottom: 4px; }
-      .field input { width: 100%; padding: 9px 11px; border: 1px solid #c0c4cc; border-radius: 5px; font-size: 13.5px; font-family: inherit; background: #fff; }
-      .field input:focus { outline: none; border-color: #0056b3; box-shadow: 0 0 0 2px rgba(0,86,179,0.12); }
-      .error-msg { font-size: 12px; color: #dc3545; margin-bottom: 8px; min-height: 16px; }
-      .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-      .submit-btn { padding: 9px 24px; font-size: 13.5px; font-weight: 700; font-family: inherit; color: #fff; background: #0056b3; border: none; border-radius: 5px; cursor: pointer; transition: background 0.15s; }
-      .submit-btn:hover { background: #003d82; }
-      .back-btn { padding: 9px 18px; font-size: 13.5px; font-weight: 600; font-family: inherit; color: #555; background: #fff; border: 1px solid #c0c4cc; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.15s; }
-      .back-btn:hover { background: #f5f5f5; }
-      .footer { margin-top: auto; }
-      .color-bar { display: flex; height: 5px; }
-      .color-bar .c1 { flex: 1; background: #dc3545; }
-      .color-bar .c2 { flex: 1; background: #ffc107; }
-      .color-bar .c3 { flex: 1; background: #0d6efd; }
-      .color-bar .c4 { flex: 1; background: #198754; }
-      .footer-main { background: #fff; border-top: 1px solid #e0e0e0; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-      .footer-left { font-size: 10.5px; color: #777; line-height: 1.6; }
-      .footer-right { display: flex; align-items: center; gap: 10px; }
-      .social-icon { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; text-decoration: none; transition: opacity 0.15s; }
-      .social-icon:hover { opacity: 0.8; }
+
+      .page-heading {
+        font-size: 20px;
+        font-weight: 700;
+        color: #003366;
+        margin-bottom: 3px;
+      }
+
+      .page-meta {
+        font-size: 12.5px;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .page-meta strong { color: #003366; }
+
+      .card {
+        background: #fff;
+        border: 1px solid #dce0e6;
+        border-radius: 6px;
+        overflow: hidden;
+        max-width: 520px;
+      }
+
+      .card-header {
+        background: #003366;
+        color: #fff;
+        padding: 12px 24px;
+        font-size: 13.5px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .card-header .lock-icon {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(255,255,255,0.7);
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .card-header .lock-icon::after {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 6px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 1px;
+        position: absolute;
+        bottom: -4px;
+        left: 1px;
+      }
+
+      .card-body { padding: 24px; }
+
+      .info-row {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 18px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f0f1f3;
+      }
+
+      .info-item { flex: 1; }
+
+      .info-label {
+        font-size: 10px;
+        font-weight: 600;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 3px;
+      }
+
+      .info-value {
+        font-size: 13px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .field { margin-bottom: 16px; }
+
+      .field label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 5px;
+      }
+
+      .field label .req { color: #dc3545; }
+
+      .field input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 13.5px;
+        font-family: inherit;
+        background: #fff;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+
+      .field input:focus {
+        outline: none;
+        border-color: #0056b3;
+        box-shadow: 0 0 0 3px rgba(0,86,179,0.1);
+      }
+
+      .error-msg {
+        font-size: 12px;
+        color: #dc3545;
+        margin-bottom: 8px;
+        min-height: 16px;
+      }
+
+      .btn-row { display: flex; gap: 10px; margin-top: 6px; }
+
+      .btn-primary {
+        padding: 10px 28px;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: inherit;
+        color: #fff;
+        background: #0056b3;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+
+      .btn-primary:hover { background: #004494; }
+
+      .btn-outline {
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: inherit;
+        color: #666;
+        background: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.15s;
+      }
+
+      .btn-outline:hover { background: #f8f9fa; }
+
+      .security-note {
+        margin-top: 16px;
+        padding: 10px 14px;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        font-size: 11px;
+        color: #888;
+        line-height: 1.5;
+      }
+
+      .footer {
+        margin-top: auto;
+        background: #fff;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .footer-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 14px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .footer-left { font-size: 10px; color: #999; line-height: 1.6; }
+      .footer-right { display: flex; align-items: center; gap: 8px; }
+
+      .social-icon {
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .social-icon:hover { opacity: 0.75; }
       .si-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .si-fb { background: #1877f2; }
       .si-li { background: #0a66c2; }
-      .si-x { background: #14171a; font-size: 12px; }
-      .footer-brand { display: flex; margin-left: 10px; }
-      .brand-block { padding: 5px 12px; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: lowercase; }
+      .si-x { background: #14171a; font-size: 10px; }
+
+      .footer-brand { display: flex; margin-left: 8px; }
+      .brand-block { padding: 4px 10px; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.04em; }
       .bb-1 { background: #003366; border-radius: 3px 0 0 3px; }
       .bb-2 { background: #e6a817; }
       .bb-3 { background: #dc3545; border-radius: 0 3px 3px 0; }
-      @media (max-width: 640px) { .header { padding: 10px 16px; } .nav-bar { padding: 0 16px; } .breadcrumb { padding: 8px 16px; } .content { padding: 24px 16px; } .verify-panel { padding: 20px; } .footer-main { flex-direction: column; text-align: center; padding: 14px 16px; } .footer-right { justify-content: center; } }
+
+      @media (max-width: 640px) {
+        .header-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+        .header-right { text-align: left; }
+        .card { max-width: 100%; }
+        .info-row { flex-direction: column; gap: 8px; }
+        .footer-inner { flex-direction: column; text-align: center; }
+        .footer-right { justify-content: center; }
+      }
     </style>
   </head>
   <body>
+    <div class="top-strip"><div></div><div></div><div></div><div></div></div>
+
     <div class="header">
-      <img src="BITSLOGO.jpeg" alt="BITS Pilani" />
-      <div class="header-text">
-        <div class="header-title">BITS Pilani</div>
-        <div class="header-sub">Pilani &ensp;|&ensp; Dubai &ensp;|&ensp; Goa &ensp;|&ensp; Hyderabad</div>
-        <div class="header-wilp">Work Integrated Learning Programmes</div>
-      </div>
-    </div>
-    <nav class="nav-bar">
-      <a href="index.html">Student Zone</a>
-      <a href="index.html" class="active">Results</a>
-    </nav>
-    <div class="breadcrumb">
-      <a href="index.html">Home</a><span>›</span><a href="index.html">Results</a><span>›</span>Fourth Semester 2025-2026
-    </div>
-    <div class="content">
-      <div class="results-title">Grade Sheet Download</div>
-      <div class="course-label">M.Tech. (Artificial Intelligence And Machine Learning)</div>
-      <div class="results-sub">FOURTH SEMESTER 2025-2026 &ensp;·&ensp; Semester Marksheet</div>
-      <div class="verify-panel">
-        <h2>Verify Your Identity</h2>
-        <form id="access-form">
-          <div class="field"><label for="roll">Roll Number</label><input id="roll" name="roll" autocomplete="off" required /></div>
-          <div class="field"><label for="dob">Date of Birth</label><input id="dob" name="dob" type="date" required /></div>
-          <div class="error-msg" id="error" aria-live="polite"></div>
-          <div class="btn-row">
-            <button type="submit" class="submit-btn">Download Grade Sheet &rsaquo;</button>
-            <a href="index.html" class="back-btn">Back to Results</a>
+      <div class="header-inner">
+        <div class="header-left">
+          <img src="BITSLOGO.jpeg" alt="BITS Pilani" />
+          <div class="header-text">
+            <div class="header-title">BITS Pilani</div>
+            <div class="header-sub">Work Integrated Learning Programmes</div>
           </div>
-        </form>
+        </div>
+        <div class="header-right">
+          <strong>eLearn Portal</strong><br />
+          Pilani &middot; Dubai &middot; Goa &middot; Hyderabad
+        </div>
       </div>
     </div>
+
+    <nav class="nav-bar">
+      <div class="nav-inner">
+        <a href="index.html">Student Zone</a>
+        <a href="index.html" class="active">Results</a>
+      </div>
+    </nav>
+
+    <div class="page-body">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <a href="index.html">Results</a> &rsaquo; Fourth Semester 2025-2026
+      </div>
+
+      <div class="page-heading">Grade Sheet Download</div>
+      <div class="page-meta">
+        <strong>M.Tech. (Artificial Intelligence And Machine Learning)</strong><br />
+        FOURTH SEMESTER 2025-2026 &ensp;·&ensp; Semester Marksheet
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="lock-icon"></span>
+          Secure Verification Required
+        </div>
+        <div class="card-body">
+          <div class="info-row">
+            <div class="info-item">
+              <div class="info-label">Programme</div>
+              <div class="info-value">M.Tech. (AI &amp; ML)</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Semester</div>
+              <div class="info-value">Fourth Semester</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Academic Year</div>
+              <div class="info-value">2025-2026</div>
+            </div>
+          </div>
+
+          <form id="access-form">
+            <div class="field">
+              <label for="roll">Roll Number <span class="req">*</span></label>
+              <input id="roll" name="roll" autocomplete="off" required />
+            </div>
+            <div class="field">
+              <label for="dob">Date of Birth <span class="req">*</span></label>
+              <input id="dob" name="dob" type="date" required />
+            </div>
+            <div class="error-msg" id="error" aria-live="polite"></div>
+            <div class="btn-row">
+              <button type="submit" class="btn-primary">Download Grade Sheet</button>
+              <a href="index.html" class="btn-outline">Back</a>
+            </div>
+          </form>
+
+          <div class="security-note">
+            This is a secure document. Verification of identity is mandatory as per university policy.
+            Grade sheets are generated in real-time and delivered as authenticated PDF documents.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
-      <div class="color-bar"><div class="c1"></div><div class="c2"></div><div class="c3"></div><div class="c4"></div></div>
-      <div class="footer-main">
-        <div class="footer-left">An institution deemed to be a University estd. vide Sec.3 of the UGC Act, 1956<br />under notification #F.12-23/63.U-2 of June 18, 1964</div>
+      <div class="footer-inner">
+        <div class="footer-left">
+          An institution deemed to be a University estd. vide Sec.3 of the UGC Act, 1956<br />
+          under notification #F.12-23/63.U-2 of June 18, 1964
+        </div>
         <div class="footer-right">
           <a href="https://www.instagram.com/bitspilani_official/" class="social-icon si-ig" title="Instagram">&#9679;</a>
           <a href="https://www.facebook.com/BITSPilaniOfficial/" class="social-icon si-fb" title="Facebook">f</a>
           <a href="https://www.linkedin.com/school/bits-pilani/" class="social-icon si-li" title="LinkedIn">in</a>
           <a href="https://x.com/BITSPilani_" class="social-icon si-x" title="X">X</a>
-          <div class="footer-brand"><div class="brand-block bb-1">innovate</div><div class="brand-block bb-2">achieve</div><div class="brand-block bb-3">lead</div></div>
+          <div class="footer-brand">
+            <div class="brand-block bb-1">innovate</div>
+            <div class="brand-block bb-2">achieve</div>
+            <div class="brand-block bb-3">lead</div>
+          </div>
         </div>
       </div>
     </footer>
+
     <script>
       (function () {
         var form = document.getElementById("access-form");
@@ -115,10 +430,12 @@
         var dobEl = document.getElementById("dob");
         var errEl = document.getElementById("error");
         form.addEventListener("submit", function (e) {
-          e.preventDefault(); errEl.textContent = "";
-          var roll = rollEl.value.trim(); var dob = dobEl.value.trim();
+          e.preventDefault();
+          errEl.textContent = "";
+          var roll = rollEl.value.trim();
+          var dob = dobEl.value.trim();
           if (!roll || !dob) { errEl.textContent = "Both fields are required."; return; }
-          if (roll !== "2019MT096" || dob !== "1996-05-13") { errEl.textContent = "Invalid roll number or date of birth. Please try again."; return; }
+          if (roll !== "2019MT096" || dob !== "1996-05-13") { errEl.textContent = "Verification failed. Roll number or date of birth does not match our records."; return; }
           window.location.href = "/api-proxy/v2/get-grades-sheet/d2f4a6b8c0e1f5a7b9c2d4e6f8a0b1c3/";
         });
       })();

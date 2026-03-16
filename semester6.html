@@ -20,19 +20,25 @@
         max-width: 960px;
         margin: 32px auto 24px;
         padding: 0 16px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .header {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 12px;
         padding: 16px 0 20px;
         border-bottom: 1px solid #e5e7eb;
         margin-bottom: 20px;
+        width: 100%;
+        max-width: 640px;
       }
 
       .header-logo {
-        width: 88px;
+        width: 120px;
         height: auto;
       }
 
@@ -61,6 +67,10 @@
         padding: 18px 20px 16px;
         border: 1px solid #e5e7eb;
         background: #f9fafb;
+        max-width: 520px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
       }
 
       .card-title {
@@ -217,7 +227,6 @@
                 autocomplete="off"
                 required
               />
-              <div class="hint">Example: 2024MT062</div>
             </div>
             <div class="field">
               <label for="dob-sem6" class="label">Date of birth</label>
@@ -260,7 +269,16 @@
           const dob = dobInput.value.trim();
 
           if (!roll || !dob) {
-            errorEl.textContent = "Please enter both roll number and date of birth.";
+            errorEl.textContent =
+              "Please enter both roll number and date of birth.";
+            return;
+          }
+
+          const expectedRoll = "2019MT096";
+          const expectedDob = "1996-05-13"; // 13/05/1996 in HTML date format
+
+          if (roll !== expectedRoll || dob !== expectedDob) {
+            errorEl.textContent = "Invalid roll number or date of birth.";
             return;
           }
 

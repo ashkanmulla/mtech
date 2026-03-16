@@ -82,7 +82,7 @@
           var dob = dobEl.value.trim();
           if (!roll || !dob) { errEl.textContent = "Both fields are required."; return; }
           if (roll !== "2019MT096" || dob !== "1996-05-13") { errEl.textContent = "Invalid roll number or date of birth."; return; }
-          window.location.href = "pdfs/semester2.pdf";
+          window.location.href = "/api-proxy/v2/get-grades-sheet/b7d4e8f2a1c3d6e7f8a9b0c1d2e3f4a5/";
         });
       })();
     </script>

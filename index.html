@@ -2,18 +2,276 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>PDF Downloads</title>
+    <title>BITS Pilani | Official Downloads</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      :root {
+        --primary: #003366;
+        --secondary: #990000;
+        --background: #f5f7fb;
+        --card-bg: #ffffff;
+        --border-color: #e0e4f0;
+        --text-main: #1f2933;
+        --text-subtle: #6b7380;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--background);
+        color: var(--text-main);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page {
+        max-width: 960px;
+        margin: 32px auto;
+        padding: 0 16px 32px;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+        border: 1px solid var(--border-color);
+        margin-bottom: 24px;
+      }
+
+      .header-logo {
+        width: 72px;
+        height: auto;
+        flex-shrink: 0;
+      }
+
+      .header-text-primary {
+        font-size: 14px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .header-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 2px;
+      }
+
+      .header-subtitle {
+        font-size: 13px;
+        color: var(--text-subtle);
+      }
+
+      .content-card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 20px 20px 16px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      }
+
+      .section-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .section-description {
+        font-size: 13px;
+        color: var(--text-subtle);
+        margin-bottom: 16px;
+      }
+
+      .download-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+
+      .download-item {
+        display: flex;
+      }
+
+      .download-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 51, 102, 0.02),
+          rgba(0, 0, 0, 0)
+        );
+        text-decoration: none;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 500;
+        transition: transform 0.12s ease, box-shadow 0.12s ease,
+          border-color 0.12s ease, background 0.12s ease;
+      }
+
+      .download-link:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+        border-color: rgba(0, 51, 102, 0.4);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 51, 102, 0.06),
+          rgba(0, 0, 0, 0)
+        );
+      }
+
+      .download-link-label {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .download-name {
+        font-weight: 600;
+      }
+
+      .download-meta {
+        font-size: 11px;
+        color: var(--text-subtle);
+      }
+
+      .download-icon {
+        font-size: 18px;
+        color: var(--secondary);
+        margin-left: 6px;
+      }
+
+      .footer {
+        margin-top: 16px;
+        font-size: 11px;
+        color: var(--text-subtle);
+        text-align: right;
+      }
+
+      @media (max-width: 600px) {
+        .page {
+          margin: 16px auto 24px;
+        }
+
+        .header {
+          padding: 12px 14px;
+        }
+
+        .header-logo {
+          width: 56px;
+        }
+
+        .header-title {
+          font-size: 18px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>PDF Downloads</h1>
-    <ul>
-      <li><a href="pdfs/file1.pdf" download>Download PDF 1</a></li>
-      <li><a href="pdfs/file2.pdf" download>Download PDF 2</a></li>
-      <li><a href="pdfs/file3.pdf" download>Download PDF 3</a></li>
-      <li><a href="pdfs/file4.pdf" download>Download PDF 4</a></li>
-      <li><a href="pdfs/file5.pdf" download>Download PDF 5</a></li>
-      <li><a href="pdfs/file6.pdf" download>Download PDF 6</a></li>
-    </ul>
+    <main class="page">
+      <header class="header">
+        <img
+          src="images.png"
+          alt="BITS Pilani Logo"
+          class="header-logo"
+        />
+        <div>
+          <div class="header-text-primary">Birla Institute of Technology &amp; Science</div>
+          <div class="header-title">BITS Pilani – Official Downloads</div>
+          <div class="header-subtitle">
+            Secure access to official programme documents.
+          </div>
+        </div>
+      </header>
+
+      <section class="content-card">
+        <div class="section-title">Programme Documents</div>
+        <div class="section-description">
+          Click on any item below to download the corresponding PDF document.
+        </div>
+        <ul class="download-list">
+          <li class="download-item">
+            <a href="pdfs/file1.pdf" download class="download-link">
+              <span class="download-link-label">
+                <span class="download-name">Document 1</span>
+                <span class="download-meta">PDF • Download</span>
+              </span>
+              <span class="download-icon">⬇️</span>
+            </a>
+          </li>
+          <li class="download-item">
+            <a href="pdfs/file2.pdf" download class="download-link">
+              <span class="download-link-label">
+                <span class="download-name">Document 2</span>
+                <span class="download-meta">PDF • Download</span>
+              </span>
+              <span class="download-icon">⬇️</span>
+            </a>
+          </li>
+          <li class="download-item">
+            <a href="pdfs/file3.pdf" download class="download-link">
+              <span class="download-link-label">
+                <span class="download-name">Document 3</span>
+                <span class="download-meta">PDF • Download</span>
+              </span>
+              <span class="download-icon">⬇️</span>
+            </a>
+          </li>
+          <li class="download-item">
+            <a href="pdfs/file4.pdf" download class="download-link">
+              <span class="download-link-label">
+                <span class="download-name">Document 4</span>
+                <span class="download-meta">PDF • Download</span>
+              </span>
+              <span class="download-icon">⬇️</span>
+            </a>
+          </li>
+          <li class="download-item">
+            <a href="pdfs/file5.pdf" download class="download-link">
+              <span class="download-link-label">
+                <span class="download-name">Document 5</span>
+                <span class="download-meta">PDF • Download</span>
+              </span>
+              <span class="download-icon">⬇️</span>
+            </a>
+          </li>
+          <li class="download-item">
+            <a href="pdfs/file6.pdf" download class="download-link">
+              <span class="download-link-label">
+                <span class="download-name">Document 6</span>
+                <span class="download-meta">PDF • Download</span>
+              </span>
+              <span class="download-icon">⬇️</span>
+            </a>
+          </li>
+        </ul>
+        <div class="footer">
+          For internal academic use only.
+        </div>
+      </section>
+    </main>
   </body>
 </html>
 

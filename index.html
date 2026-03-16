@@ -2,52 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>BITS Pilani | M.Tech Programme Portal</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <title>BITS Pilani | Work Integrated Learning Programmes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background: #f1f1f1;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: #eef1f5;
         color: #333;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
-      .top-bar {
-        background: #e8e8e8;
-        border-bottom: 1px solid #ccc;
-        padding: 12px 20px;
+      .header {
+        background: #fff;
+        padding: 10px 30px;
         display: flex;
         align-items: center;
         gap: 16px;
+        border-bottom: 3px solid #1a3c6e;
       }
 
-      .top-bar img {
-        height: 60px;
-      }
+      .header img { height: 62px; }
 
-      .top-bar-title {
-        font-size: 18px;
+      .header-text { line-height: 1.3; }
+
+      .header-title {
+        font-size: 20px;
         font-weight: 700;
-        color: #2c3e6b;
+        color: #1a3c6e;
       }
 
-      .top-bar-sub {
+      .header-sub {
         font-size: 11px;
-        color: #666;
+        color: #555;
+        letter-spacing: 0.02em;
       }
 
       .nav-bar {
-        background: #5d6d7e;
-        padding: 0 20px;
+        background: #1a3c6e;
+        padding: 0 30px;
         display: flex;
         gap: 0;
       }
@@ -56,145 +54,278 @@
         color: #fff;
         text-decoration: none;
         font-size: 13px;
-        padding: 10px 16px;
+        font-weight: 600;
+        padding: 11px 18px;
         display: inline-block;
         transition: background 0.15s;
       }
 
       .nav-bar a:hover,
-      .nav-bar a.active {
-        background: #4a5a6a;
-      }
+      .nav-bar a.active { background: rgba(255,255,255,0.12); }
 
-      .main {
-        max-width: 900px;
-        margin: 28px auto;
-        padding: 0 16px;
-      }
-
-      .page-title {
-        font-size: 24px;
-        color: #5d6d7e;
-        font-weight: 300;
-        margin-bottom: 6px;
-      }
-
-      .page-desc {
-        font-size: 14px;
+      .breadcrumb {
+        background: #dce3ed;
+        padding: 10px 30px;
+        font-size: 12px;
         color: #555;
+      }
+
+      .breadcrumb a { color: #1a3c6e; text-decoration: none; }
+      .breadcrumb a:hover { text-decoration: underline; }
+      .breadcrumb span { color: #888; margin: 0 4px; }
+
+      .content {
+        flex: 1;
+        max-width: 960px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 30px 30px 40px;
+      }
+
+      .results-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #2563eb;
         margin-bottom: 24px;
       }
 
-      .semester-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 14px;
+      .form-row {
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+        flex-wrap: wrap;
       }
 
-      .semester-card {
-        background: #e8edf3;
-        border: 1px solid #d0d5dd;
-        border-radius: 6px;
-        padding: 18px 20px;
-        text-decoration: none;
-        color: #333;
-        transition: border-color 0.15s, box-shadow 0.15s;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
       }
 
-      .semester-card:hover {
-        border-color: #5d6d7e;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      }
-
-      .semester-card-id {
-        font-family: "Courier New", Courier, monospace;
-        font-size: 11px;
-        color: #777;
-        margin-bottom: 4px;
-        letter-spacing: 0.04em;
-      }
-
-      .semester-card-name {
-        font-size: 16px;
+      .form-group label {
+        font-size: 14px;
         font-weight: 600;
-        color: #2c3e6b;
-        margin-bottom: 4px;
+        color: #333;
       }
 
-      .semester-card-meta {
-        font-size: 12px;
-        color: #666;
+      .form-group select {
+        padding: 10px 14px;
+        font-size: 14px;
+        font-family: inherit;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        background: #fff;
+        color: #333;
+        min-width: 230px;
+        cursor: pointer;
+        appearance: auto;
       }
 
-      .footer-bar {
-        margin-top: 32px;
-        text-align: center;
-        font-size: 11px;
-        color: #999;
-        padding: 16px;
+      .form-group select:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
+      }
+
+      .submit-btn {
+        padding: 10px 30px;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: inherit;
+        color: #fff;
+        background: #2563eb;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.15s;
+        white-space: nowrap;
+      }
+
+      .submit-btn:hover { background: #1d4ed8; }
+
+      .notice {
+        margin-top: 28px;
+        padding: 14px 18px;
+        background: #fff8e1;
+        border-left: 4px solid #f59e0b;
+        border-radius: 4px;
+        font-size: 13px;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .footer {
+        margin-top: auto;
+      }
+
+      .color-bar {
+        display: flex;
+        height: 6px;
+      }
+
+      .color-bar .bar-red { flex: 1; background: #e53935; }
+      .color-bar .bar-yellow { flex: 1; background: #fdd835; }
+      .color-bar .bar-blue { flex: 1; background: #1e88e5; }
+      .color-bar .bar-green { flex: 1; background: #43a047; }
+
+      .footer-main {
+        background: #fff;
         border-top: 1px solid #ddd;
+        padding: 18px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-left {
+        font-size: 11px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .footer-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .social-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .si-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+      .si-fb { background: #1877f2; }
+      .si-li { background: #0a66c2; }
+      .si-x { background: #000; font-size: 13px; }
+
+      .footer-brand {
+        display: flex;
+        gap: 0;
+        margin-left: 12px;
+      }
+
+      .brand-block {
+        padding: 6px 14px;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      .bb-blue { background: #1a3c6e; border-radius: 4px 0 0 4px; }
+      .bb-yellow { background: #f59e0b; }
+      .bb-red { background: #e53935; border-radius: 0 4px 4px 0; }
+
+      @media (max-width: 640px) {
+        .form-row { flex-direction: column; align-items: stretch; }
+        .form-group select { min-width: 100%; }
+        .footer-main { flex-direction: column; text-align: center; }
+        .footer-right { justify-content: center; }
       }
     </style>
   </head>
   <body>
-    <div class="top-bar">
+    <div class="header">
       <img src="BITSLOGO.jpeg" alt="BITS Pilani" />
-      <div>
-        <div class="top-bar-title">BITS Pilani</div>
-        <div class="top-bar-sub">
-          Pilani | Dubai | Goa | Hyderabad
-        </div>
+      <div class="header-text">
+        <div class="header-title">BITS Pilani</div>
+        <div class="header-sub">Pilani &ensp;|&ensp; Dubai &ensp;|&ensp; Goa &ensp;|&ensp; Hyderabad</div>
       </div>
     </div>
+
     <nav class="nav-bar">
-      <a href="index.html" class="active">M.Tech Portal</a>
-      <a href="#">Academic Resources</a>
-      <a href="#">Student Support</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="#">Admissions</a>
+      <a href="#">Academics</a>
+      <a href="#">Student Zone</a>
+      <a href="#">Placements</a>
+      <a href="#">Contact</a>
     </nav>
 
-    <div class="main">
-      <div class="page-title">M.Tech Programme – Semester Results</div>
-      <div class="page-desc">
-        Select your semester below to access the corresponding grade sheet.
-        You will need your roll number and date of birth to proceed.
-      </div>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span><a href="index.html">Student Zone</a><span>›</span>Results
+    </div>
 
-      <div class="semester-grid">
-        <a href="semester1.html" class="semester-card">
-          <div class="semester-card-id">SEM-I</div>
-          <div class="semester-card-name">Semester 1</div>
-          <div class="semester-card-meta">Grade sheet &middot; PDF download</div>
-        </a>
-        <a href="semester2.html" class="semester-card">
-          <div class="semester-card-id">SEM-II</div>
-          <div class="semester-card-name">Semester 2</div>
-          <div class="semester-card-meta">Grade sheet &middot; PDF download</div>
-        </a>
-        <a href="semester3.html" class="semester-card">
-          <div class="semester-card-id">SEM-III</div>
-          <div class="semester-card-name">Semester 3</div>
-          <div class="semester-card-meta">Grade sheet &middot; PDF download</div>
-        </a>
-        <a href="semester4.html" class="semester-card">
-          <div class="semester-card-id">SEM-IV</div>
-          <div class="semester-card-name">Semester 4</div>
-          <div class="semester-card-meta">Grade sheet &middot; PDF download</div>
-        </a>
-        <a href="semester5.html" class="semester-card">
-          <div class="semester-card-id">SEM-V</div>
-          <div class="semester-card-name">Semester 5</div>
-          <div class="semester-card-meta">Grade sheet &middot; PDF download</div>
-        </a>
-        <a href="semester6.html" class="semester-card">
-          <div class="semester-card-id">SEM-VI</div>
-          <div class="semester-card-name">Semester 6</div>
-          <div class="semester-card-meta">Grade sheet &middot; PDF download</div>
-        </a>
-      </div>
+    <div class="content">
+      <div class="results-title">Results</div>
 
-      <div class="footer-bar">
-        &copy; 2026 BITS Pilani. All rights reserved. For authorized use only.
+      <form id="results-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select id="type" name="type">
+              <option value="marksheet">Semester Marksheet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="semester">Choose Semester</label>
+            <select id="semester" name="semester">
+              <option value="" disabled selected>Select</option>
+              <option value="1">FIRST SEMESTER 2024-2025</option>
+              <option value="2">SECOND SEMESTER 2024-2025</option>
+              <option value="3">THIRD SEMESTER 2025-2026</option>
+              <option value="4">FOURTH SEMESTER 2025-2026</option>
+              <option value="5">FIFTH SEMESTER 2026-2027</option>
+              <option value="6">SIXTH SEMESTER 2026-2027</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-btn">Submit &rsaquo;</button>
+        </div>
+      </form>
+
+      <div class="notice">
+        <strong>Note:</strong> You will be required to verify your identity (Roll Number &amp; Date of Birth) before downloading the grade sheet.
+        Results are available for M.Tech Work Integrated Learning Programme students only.
       </div>
     </div>
+
+    <footer class="footer">
+      <div class="color-bar">
+        <div class="bar-red"></div>
+        <div class="bar-yellow"></div>
+        <div class="bar-blue"></div>
+        <div class="bar-green"></div>
+      </div>
+      <div class="footer-main">
+        <div class="footer-left">
+          An institution deemed to be a University estd. vide Sec.3 of the UGC Act, 1956<br />
+          under notification #F.12-23/63.U-2 of June 18, 1964
+        </div>
+        <div class="footer-right">
+          <a href="#" class="social-icon si-ig" title="Instagram">&#9679;</a>
+          <a href="#" class="social-icon si-fb" title="Facebook">f</a>
+          <a href="#" class="social-icon si-li" title="LinkedIn">in</a>
+          <a href="#" class="social-icon si-x" title="X">X</a>
+          <div class="footer-brand">
+            <div class="brand-block bb-blue">innovate</div>
+            <div class="brand-block bb-yellow">achieve</div>
+            <div class="brand-block bb-red">lead</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var form = document.getElementById("results-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var sem = document.getElementById("semester").value;
+          if (!sem) { alert("Please select a semester."); return; }
+          window.location.href = "semester" + sem + ".html";
+        });
+      })();
+    </script>
   </body>
 </html>

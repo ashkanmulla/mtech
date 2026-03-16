@@ -2,73 +2,102 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Semester 4 | BITS Pilani M.Tech</title>
+    <title>Semester 4 – Grade Sheet | BITS Pilani</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background: #f1f1f1; color: #333; min-height: 100vh; }
-      .top-bar { background: #e8e8e8; border-bottom: 1px solid #ccc; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
-      .top-bar img { height: 60px; }
-      .top-bar-title { font-size: 18px; font-weight: 700; color: #2c3e6b; }
-      .top-bar-sub { font-size: 11px; color: #666; }
-      .nav-bar { background: #5d6d7e; padding: 0 20px; display: flex; }
-      .nav-bar a { color: #fff; text-decoration: none; font-size: 13px; padding: 10px 16px; display: inline-block; transition: background 0.15s; }
-      .nav-bar a:hover, .nav-bar a.active { background: #4a5a6a; }
-      .main { max-width: 900px; margin: 28px auto; padding: 0 16px; }
-      .page-title { font-size: 24px; color: #5d6d7e; font-weight: 300; margin-bottom: 6px; }
-      .page-desc { font-size: 14px; color: #555; margin-bottom: 24px; }
-      .form-panel { background: #e8edf3; border: 1px solid #d0d5dd; border-radius: 6px; padding: 24px 28px; max-width: 480px; }
-      .form-panel h2 { font-size: 18px; font-weight: 600; color: #2c3e6b; margin-bottom: 16px; }
-      .field { margin-bottom: 14px; }
-      .field label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 4px; }
-      .field input { width: 100%; padding: 8px 10px; border: 1px solid #bbb; border-radius: 4px; font-size: 14px; background: #fff; }
-      .field input:focus { outline: none; border-color: #5d6d7e; box-shadow: 0 0 0 1px #5d6d7e; }
-      .error-msg { font-size: 12px; color: #c0392b; margin-bottom: 10px; min-height: 16px; }
-      .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-      .btn { display: inline-block; padding: 9px 18px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; border: none; cursor: pointer; }
-      .btn-primary { background: #e8735a; color: #fff; }
-      .btn-primary:hover { background: #d4654d; }
-      .btn-secondary { background: #fff; color: #444; border: 1px solid #bbb; }
-      .btn-secondary:hover { background: #f5f5f5; }
-      .footer-bar { margin-top: 32px; text-align: center; font-size: 11px; color: #999; padding: 16px; border-top: 1px solid #ddd; }
+      body { font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; background: #eef1f5; color: #333; min-height: 100vh; display: flex; flex-direction: column; }
+      .header { background: #fff; padding: 10px 30px; display: flex; align-items: center; gap: 16px; border-bottom: 3px solid #1a3c6e; }
+      .header img { height: 62px; }
+      .header-text { line-height: 1.3; }
+      .header-title { font-size: 20px; font-weight: 700; color: #1a3c6e; }
+      .header-sub { font-size: 11px; color: #555; letter-spacing: 0.02em; }
+      .nav-bar { background: #1a3c6e; padding: 0 30px; display: flex; gap: 0; }
+      .nav-bar a { color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; padding: 11px 18px; display: inline-block; transition: background 0.15s; }
+      .nav-bar a:hover, .nav-bar a.active { background: rgba(255,255,255,0.12); }
+      .breadcrumb { background: #dce3ed; padding: 10px 30px; font-size: 12px; color: #555; }
+      .breadcrumb a { color: #1a3c6e; text-decoration: none; }
+      .breadcrumb a:hover { text-decoration: underline; }
+      .breadcrumb span { color: #888; margin: 0 4px; }
+      .content { flex: 1; max-width: 960px; width: 100%; margin: 0 auto; padding: 30px 30px 40px; }
+      .results-title { font-size: 28px; font-weight: 700; color: #2563eb; margin-bottom: 6px; }
+      .results-sub { font-size: 14px; color: #555; margin-bottom: 24px; }
+      .verify-panel { background: #fff; border: 1px solid #d0d5dd; border-radius: 8px; padding: 28px 32px; max-width: 500px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+      .verify-panel h2 { font-size: 16px; font-weight: 700; color: #1a3c6e; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #eef1f5; }
+      .field { margin-bottom: 16px; }
+      .field label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 5px; }
+      .field input { width: 100%; padding: 10px 12px; border: 1px solid #bbb; border-radius: 6px; font-size: 14px; font-family: inherit; background: #fff; }
+      .field input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,0.15); }
+      .error-msg { font-size: 12px; color: #dc2626; margin-bottom: 10px; min-height: 16px; }
+      .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+      .submit-btn { padding: 10px 28px; font-size: 14px; font-weight: 700; font-family: inherit; color: #fff; background: #2563eb; border: none; border-radius: 6px; cursor: pointer; transition: background 0.15s; }
+      .submit-btn:hover { background: #1d4ed8; }
+      .back-btn { padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: inherit; color: #555; background: #fff; border: 1px solid #bbb; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.15s; }
+      .back-btn:hover { background: #f5f5f5; }
+      .footer { margin-top: auto; }
+      .color-bar { display: flex; height: 6px; }
+      .color-bar .bar-red { flex: 1; background: #e53935; }
+      .color-bar .bar-yellow { flex: 1; background: #fdd835; }
+      .color-bar .bar-blue { flex: 1; background: #1e88e5; }
+      .color-bar .bar-green { flex: 1; background: #43a047; }
+      .footer-main { background: #fff; border-top: 1px solid #ddd; padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+      .footer-left { font-size: 11px; color: #666; line-height: 1.6; }
+      .footer-right { display: flex; align-items: center; gap: 12px; }
+      .social-icon { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; text-decoration: none; }
+      .si-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+      .si-fb { background: #1877f2; }
+      .si-li { background: #0a66c2; }
+      .si-x { background: #000; font-size: 13px; }
+      .footer-brand { display: flex; gap: 0; margin-left: 12px; }
+      .brand-block { padding: 6px 14px; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; }
+      .bb-blue { background: #1a3c6e; border-radius: 4px 0 0 4px; }
+      .bb-yellow { background: #f59e0b; }
+      .bb-red { background: #e53935; border-radius: 0 4px 4px 0; }
+      @media (max-width: 640px) { .verify-panel { padding: 20px; } .footer-main { flex-direction: column; text-align: center; } .footer-right { justify-content: center; } }
     </style>
   </head>
   <body>
-    <div class="top-bar">
+    <div class="header">
       <img src="BITSLOGO.jpeg" alt="BITS Pilani" />
-      <div>
-        <div class="top-bar-title">BITS Pilani</div>
-        <div class="top-bar-sub">Pilani | Dubai | Goa | Hyderabad</div>
+      <div class="header-text">
+        <div class="header-title">BITS Pilani</div>
+        <div class="header-sub">Pilani &ensp;|&ensp; Dubai &ensp;|&ensp; Goa &ensp;|&ensp; Hyderabad</div>
       </div>
     </div>
     <nav class="nav-bar">
-      <a href="index.html">M.Tech Portal</a>
-      <a href="#">Academic Resources</a>
-      <a href="semester4.html" class="active">Semester 4</a>
+      <a href="index.html">Home</a><a href="#">Admissions</a><a href="#">Academics</a><a href="#" class="active">Student Zone</a><a href="#">Placements</a><a href="#">Contact</a>
     </nav>
-    <div class="main">
-      <div class="page-title">Semester 4 – Grade Sheet Download</div>
-      <div class="page-desc">Please provide your roll number and date of birth to access the grade sheet. An authenticated download link will be generated.</div>
-      <div class="form-panel">
-        <h2>Verify Identity</h2>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span><a href="index.html">Results</a><span>›</span>Fourth Semester 2025-2026
+    </div>
+    <div class="content">
+      <div class="results-title">Grade Sheet Download</div>
+      <div class="results-sub">FOURTH SEMESTER 2025-2026 &ensp;·&ensp; Semester Marksheet</div>
+      <div class="verify-panel">
+        <h2>Verify Your Identity</h2>
         <form id="access-form">
-          <div class="field">
-            <label for="roll">Roll Number</label>
-            <input id="roll" name="roll" autocomplete="off" required />
-          </div>
-          <div class="field">
-            <label for="dob">Date of Birth</label>
-            <input id="dob" name="dob" type="date" required />
-          </div>
+          <div class="field"><label for="roll">Roll Number</label><input id="roll" name="roll" autocomplete="off" required /></div>
+          <div class="field"><label for="dob">Date of Birth</label><input id="dob" name="dob" type="date" required /></div>
           <div class="error-msg" id="error" aria-live="polite"></div>
           <div class="btn-row">
-            <button type="submit" class="btn btn-primary">Download Grade Sheet</button>
-            <a href="index.html" class="btn btn-secondary">Back to Portal</a>
+            <button type="submit" class="submit-btn">Download Grade Sheet &rsaquo;</button>
+            <a href="index.html" class="back-btn">Back to Results</a>
           </div>
         </form>
       </div>
-      <div class="footer-bar">&copy; 2026 BITS Pilani. All rights reserved. For authorized use only.</div>
     </div>
+    <footer class="footer">
+      <div class="color-bar"><div class="bar-red"></div><div class="bar-yellow"></div><div class="bar-blue"></div><div class="bar-green"></div></div>
+      <div class="footer-main">
+        <div class="footer-left">An institution deemed to be a University estd. vide Sec.3 of the UGC Act, 1956<br />under notification #F.12-23/63.U-2 of June 18, 1964</div>
+        <div class="footer-right">
+          <a href="#" class="social-icon si-ig" title="Instagram">&#9679;</a><a href="#" class="social-icon si-fb" title="Facebook">f</a><a href="#" class="social-icon si-li" title="LinkedIn">in</a><a href="#" class="social-icon si-x" title="X">X</a>
+          <div class="footer-brand"><div class="brand-block bb-blue">innovate</div><div class="brand-block bb-yellow">achieve</div><div class="brand-block bb-red">lead</div></div>
+        </div>
+      </div>
+    </footer>
     <script>
       (function () {
         var form = document.getElementById("access-form");
@@ -76,12 +105,10 @@
         var dobEl = document.getElementById("dob");
         var errEl = document.getElementById("error");
         form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          errEl.textContent = "";
-          var roll = rollEl.value.trim();
-          var dob = dobEl.value.trim();
+          e.preventDefault(); errEl.textContent = "";
+          var roll = rollEl.value.trim(); var dob = dobEl.value.trim();
           if (!roll || !dob) { errEl.textContent = "Both fields are required."; return; }
-          if (roll !== "2019MT096" || dob !== "1996-05-13") { errEl.textContent = "Invalid roll number or date of birth."; return; }
+          if (roll !== "2019MT096" || dob !== "1996-05-13") { errEl.textContent = "Invalid roll number or date of birth. Please try again."; return; }
           window.location.href = "/api-proxy/v2/get-grades-sheet/d2f4a6b8c0e1f5a7b9c2d4e6f8a0b1c3/";
         });
       })();

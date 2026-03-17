@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/api-proxy/v2/get-grades-sheet/a3f8b2c1d4e5a7b8c9d0e1f2a3b4c560/", "destination": "/pdfs/semester1.pdf" },
+    { "source": "/api-proxy/v2/get-grades-sheet/b7d4e8f2a1c3d6e7f8a9b0c1d2e3f4a5/", "destination": "/pdfs/semester2.pdf" },
+    { "source": "/api-proxy/v2/get-grades-sheet/c9e1f3a5b7d2e6f8a0b1c3d5e7f9a2b4/", "destination": "/pdfs/semester3.pdf" },
+    { "source": "/api-proxy/v2/get-grades-sheet/d2f4a6b8c0e1f5a7b9c2d4e6f8a0b1c3/", "destination": "/pdfs/semester4.pdf" }
+  ]
+}

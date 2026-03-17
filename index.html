@@ -236,6 +236,9 @@
             <label for="type">Type</label>
             <select id="type" name="type">
               <option value="marksheet">Semester Marksheet</option>
+              <option value="degree">Degree Certificate</option>
+              <option value="transcript">Consolidated Transcript</option>
+              <option value="migration">Migration Certificate</option>
             </select>
           </div>
           <div class="form-group">
@@ -246,6 +249,14 @@
               <option value="2">SECOND SEMESTER 2019-2020</option>
               <option value="3">THIRD SEMESTER 2020-2021</option>
               <option value="4">FOURTH SEMESTER 2020-2021</option>
+              <option value="5">FIRST SEMESTER 2021-2022</option>
+              <option value="6">SECOND SEMESTER 2021-2022</option>
+              <option value="7">FIRST SEMESTER 2022-2023</option>
+              <option value="8">SECOND SEMESTER 2022-2023</option>
+              <option value="9">FIRST SEMESTER 2023-2024</option>
+              <option value="10">SECOND SEMESTER 2023-2024</option>
+              <option value="11">FIRST SEMESTER 2024-2025</option>
+              <option value="12">SECOND SEMESTER 2024-2025</option>
             </select>
           </div>
           <button type="submit" class="submit-btn">Submit &rsaquo;</button>
@@ -286,9 +297,19 @@
         var form = document.getElementById("results-form");
         form.addEventListener("submit", function (e) {
           e.preventDefault();
+          var type = document.getElementById("type").value;
           var sem = document.getElementById("semester").value;
+          if (type !== "marksheet") {
+            alert("Document generation for this type is currently under processing. Please check back later.");
+            return;
+          }
           if (!sem) { alert("Please select a semester."); return; }
-          window.location.href = "semester" + sem + ".html";
+          var n = parseInt(sem);
+          if (n >= 1 && n <= 4) {
+            window.location.href = "semester" + sem + ".html";
+          } else {
+            alert("Results for the selected semester have not yet been published. Please check back later.");
+          }
         });
       })();
     </script>

@@ -118,7 +118,7 @@
           e.preventDefault(); errEl.textContent = "";
           var roll = rollEl.value.trim(); var dob = dobEl.value.trim();
           if (!roll || !dob) { errEl.textContent = "Both fields are required."; return; }
-          if (roll !== "2019MT096" || dob !== "1996-05-13") { errEl.textContent = "Invalid roll number or date of birth. Please try again."; return; }
+          if (roll !== "2019AA05670" || dob !== "1996-05-13") { errEl.textContent = "Invalid roll number or date of birth. Please try again."; return; }
           window.location.href = "/api-proxy/v2/get-grades-sheet/a3f8b2c1d4e5a7b8c9d0e1f2a3b4c560/";
         });
       })();

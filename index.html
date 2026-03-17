@@ -20,18 +20,18 @@
 
       .header {
         background: #fff;
-        padding: 12px 32px;
+        padding: 16px 32px;
         display: flex;
         align-items: center;
-        gap: 14px;
-        border-bottom: 3px solid #003366;
+        gap: 20px;
+        border-bottom: 1px solid #ddd;
       }
 
-      .header img { height: 58px; }
-      .header-text { line-height: 1.35; }
-      .header-title { font-size: 19px; font-weight: 700; color: #003366; }
-      .header-sub { font-size: 10.5px; color: #666; letter-spacing: 0.03em; }
-      .header-wilp { font-size: 11px; color: #003366; font-weight: 600; margin-top: 2px; }
+      .header-logo { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+      .header-logo img { height: 64px; }
+      .header-logo-text { font-size: 9px; font-weight: 700; color: #003366; text-align: center; letter-spacing: 0.02em; }
+      .header-logo-sub { font-size: 7px; color: #888; text-align: center; }
+      .header-wilp-title { font-size: 26px; font-weight: 800; color: #c0392b; line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; }
 
       .nav-bar {
         background: #003366;
@@ -209,12 +209,12 @@
   </head>
   <body>
     <div class="header">
-      <img src="BITSLOGO.jpeg" alt="BITS Pilani" />
-      <div class="header-text">
-        <div class="header-title">BITS Pilani</div>
-        <div class="header-sub">Pilani &ensp;|&ensp; Dubai &ensp;|&ensp; Goa &ensp;|&ensp; Hyderabad</div>
-        <div class="header-wilp">Work Integrated Learning Programmes</div>
+      <div class="header-logo">
+        <img src="BITSLOGO.jpeg" alt="BITS Pilani" />
+        <div class="header-logo-text">BITS Pilani</div>
+        <div class="header-logo-sub">An Institution of Eminence</div>
       </div>
+      <div class="header-wilp-title">WORK<br>INTEGRATED<br>LEARNING<br>PROGRAMMES</div>
     </div>
 
     <nav class="nav-bar">

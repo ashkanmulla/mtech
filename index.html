@@ -238,6 +238,7 @@
               <option value="" disabled selected>Select</option>
               <option value="bonafide">Bonafide Certificate</option>
               <option value="transcript">Consolidated Transcript</option>
+              <option value="degree">Degree Certificate</option>
               <option value="migration">Migration Certificate</option>
               <option value="marksheet">Semester Marksheet</option>
             </select>
@@ -287,41 +288,25 @@
         var semEl = document.getElementById("semester");
         var form = document.getElementById("results-form");
 
-        var marksheetSems = [
-          "FIRST SEMESTER 2017-2018", "SECOND SEMESTER 2017-2018",
-          "FIRST SEMESTER 2018-2019", "SECOND SEMESTER 2018-2019",
-          "FIRST SEMESTER 2019-2020", "SECOND SEMESTER 2019-2020",
-          "THIRD SEMESTER 2020-2021", "FOURTH SEMESTER 2020-2021",
-          "FIRST SEMESTER 2021-2022", "SECOND SEMESTER 2021-2022",
-          "FIRST SEMESTER 2022-2023", "SECOND SEMESTER 2022-2023",
-          "FIRST SEMESTER 2023-2024", "SECOND SEMESTER 2023-2024",
-          "FIRST SEMESTER 2024-2025", "SECOND SEMESTER 2024-2025"
-        ];
+        var years = ["2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025"];
+        var semNames = ["FIRST", "SECOND", "THIRD", "FOURTH"];
 
-        var transcriptYears = [
-          "2017-2018", "2018-2019", "2019-2020", "2020-2021",
-          "2021-2022", "2022-2023", "2023-2024", "2024-2025"
-        ];
-
-        var otherYears = [
-          "2017-2018", "2018-2019", "2019-2020", "2020-2021",
-          "2021-2022", "2022-2023", "2023-2024", "2024-2025"
-        ];
+        var realSemesters = { "1": "semester1.html", "2": "semester2.html", "7": "semester3.html", "8": "semester4.html" };
 
         function populateSemesters() {
           var type = typeEl.value;
           semEl.innerHTML = '<option value="" disabled selected>Select</option>';
           if (type === "marksheet") {
-            for (var i = 0; i < marksheetSems.length; i++) {
-              semEl.innerHTML += '<option value="' + (i + 1) + '">' + marksheetSems[i] + '</option>';
-            }
-          } else if (type === "transcript") {
-            for (var i = 0; i < transcriptYears.length; i++) {
-              semEl.innerHTML += '<option value="t' + (i + 1) + '">ACADEMIC YEAR ' + transcriptYears[i] + '</option>';
+            var idx = 1;
+            for (var y = 0; y < years.length; y++) {
+              for (var s = 0; s < semNames.length; s++) {
+                semEl.innerHTML += '<option value="' + idx + '">' + semNames[s] + ' SEMESTER ' + years[y] + '</option>';
+                idx++;
+              }
             }
           } else {
-            for (var i = 0; i < otherYears.length; i++) {
-              semEl.innerHTML += '<option value="o' + (i + 1) + '">ACADEMIC YEAR ' + otherYears[i] + '</option>';
+            for (var y = 0; y < years.length; y++) {
+              semEl.innerHTML += '<option value="y' + (y + 1) + '">ACADEMIC YEAR ' + years[y] + '</option>';
             }
           }
         }
@@ -335,9 +320,8 @@
           if (!type) { alert("Please select a document type."); return; }
           if (!sem) { alert("Please select a semester / academic year."); return; }
           if (type === "marksheet") {
-            var n = parseInt(sem);
-            if (n >= 5 && n <= 8) {
-              window.location.href = "semester" + (n - 4) + ".html";
+            if (realSemesters[sem]) {
+              window.location.href = realSemesters[sem];
             } else {
               alert("Results for the selected semester have not yet been published. Please check back later.");
             }
